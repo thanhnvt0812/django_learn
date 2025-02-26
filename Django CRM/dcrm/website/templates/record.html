@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-md-6 offset-md-3">
+    <div class="card">
+        <div class="card-header">
+            <h1>{{customer_record}}</h1>
+        </div>
+        <div class="card-body">
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label "><strong>Email:</strong></label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="{{customer_record.email}}" readonly>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputPhone" class="col-sm-2 col-form-label"><strong>Phone: </strong></label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="{{ customer_record.phone }}" readonly>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="inputAddress" class="col-sm-2 col-form-label"><strong>Address: </strong></label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="{{ customer_record.address }}" readonly>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="inputCity" class="col-sm-2 col-form-label"><strong>City:</strong> </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="{{ customer_record.city }}" readonly>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="inputState" class="col-sm-2 col-form-label"><strong>State: </strong></label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="{{ customer_record.state }}" readonly>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="inputZipcode" class="col-sm-2 col-form-label"><strong>Zipcode:</strong> </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="{{ customer_record.zipcode }}" readonly>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="inputCreatedAt" class="col-sm-2 col-form-label"><strong>Created At:</strong> </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="{{ customer_record.created_at }}" readonly>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+    <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'update_record' customer_record.id %}" class="btn btn-info">Update</a>
+</div>
+{% endblock %}
